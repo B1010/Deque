@@ -18,16 +18,19 @@ namespace Lab2
         {
             items = new T[100];
         }
+
         // Длина дека
         public int Count
         {
             get { return count; }
         }
+
         // Свойство. Проверка на пустоту
         public bool IsEmpty
         {
             get { return count == 0; }
         }
+
         // Проверка на то, есть ли такой item в деке
         public bool Contains(T item)
         {
@@ -38,6 +41,7 @@ namespace Lab2
             }
             return false;
         }
+
         // Удаление элемента с начала
         public T DequeueFirst()
         {
@@ -52,6 +56,7 @@ namespace Lab2
                 return item;
             }
         }
+
         // Удаление элемента с конца
         public T DequeueLast()
         {
@@ -66,6 +71,7 @@ namespace Lab2
                 return item;
             }
         }
+
         // Добавление элемента в начало
         public void EnqueueFirst(T item)
         {
@@ -85,6 +91,7 @@ namespace Lab2
                 count++;
             }
         }
+
         // Добавление элемента в конец
         public void EnqueueLast(T item)
         {
@@ -104,6 +111,7 @@ namespace Lab2
                 count++;
             }
         }
+
         // Узнать какой элемент в начале дека
         public T PeekFirst()
         {
@@ -111,6 +119,7 @@ namespace Lab2
                 throw new Exception("Дек пуст");
             return items[head];
         }
+
         // Узнать какой элемент в конце дека
         public T PeekLast()
         {
@@ -118,6 +127,7 @@ namespace Lab2
                 throw new Exception("Дек пуст");
             return items[tail];
         }
+
         // Метод увеличения размера дека
         void Resize(int max)
         {
@@ -130,6 +140,7 @@ namespace Lab2
             }
             items = tempItems;
         }
+
         // Очистка дека, возвращение к первоначальному состоянию
         public void Clear()
         {

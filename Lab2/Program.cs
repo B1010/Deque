@@ -8,20 +8,8 @@ namespace Lab2
 {
     class Program
     {
-        private static IEnumerable<int> GetNumbers()
-        {
-            var number = 0;
-            while (true)
-            {
-                if (number > 10)
-                    yield break;
-
-                yield return number++;
-            }
-        }
         static void Main(string[] args)
         {
-            /*
             MyDeque<int> deq = new MyDeque<int>();
             deq.EnqueueFirst(1);
             deq.EnqueueFirst(2);
@@ -50,13 +38,6 @@ namespace Lab2
             deq.DequeueLast();
             deq.DequeueLast();
             deq.DequeueLast();
-            */
-
-            MyDeque<int> deq = new MyDeque<int>();
-            deq.EnqueueLast(1);
-            deq.EnqueueLast(2);
-            deq.EnqueueLast(3);
-            deq.EnqueueLast(4);
 
             Console.Read();
         }
