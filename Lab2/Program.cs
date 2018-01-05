@@ -21,7 +21,7 @@ namespace Lab2
         }
         static void Main(string[] args)
         {
-            
+            /*
             MyDeque<int> deq = new MyDeque<int>();
             deq.EnqueueFirst(1);
             deq.EnqueueFirst(2);
@@ -38,7 +38,7 @@ namespace Lab2
             var head = deq.PeekFirst();
             var tail = deq.PeekLast();
 
-            deq.Clear();
+            //deq.Clear();
 
             deq.DequeueFirst();
             deq.DequeueFirst();
@@ -50,6 +50,13 @@ namespace Lab2
             deq.DequeueLast();
             deq.DequeueLast();
             deq.DequeueLast();
+            */
+
+            MyDeque<int> deq = new MyDeque<int>();
+            deq.EnqueueLast(1);
+            deq.EnqueueLast(2);
+            deq.EnqueueLast(3);
+            deq.EnqueueLast(4);
 
             Console.Read();
         }
