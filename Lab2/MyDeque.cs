@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab2
 {
-    public class MyDeque<T> : IMyDeque<T>
+    public class MyDeque<T> : IMyDeque<T>, IEnumerable//, ICloneable
     {
         T[] items;
         int count;
@@ -155,5 +156,13 @@ namespace Lab2
                 items = tempItems;
             }
         }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = head; i <= tail; i++)
+                yield return items[i];
+        }
+
+        
     }
 }

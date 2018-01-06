@@ -26,6 +26,9 @@ namespace Lab2
             var head = deq.PeekFirst();
             var tail = deq.PeekLast();
 
+            foreach (int i in deq)
+                Console.WriteLine(i);
+
             //deq.Clear();
 
             deq.DequeueFirst();
