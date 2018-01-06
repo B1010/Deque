@@ -208,5 +208,33 @@ namespace Lab2_Test
             Assert.AreEqual(deq1.PeekLast(), deq2.PeekLast());
         }
         #endregion
+
+        #region Тест сортировки
+        [Test]
+        public void Test_CompareTo()
+        {
+            MyDeque<int> deq = new MyDeque<int>();
+            deq.EnqueueLast(1);
+            deq.EnqueueLast(2);
+            deq.EnqueueLast(3);
+            deq.EnqueueLast(4);
+
+            MyDeque<int> deq2 = new MyDeque<int>();
+            deq2.EnqueueFirst(2);
+            deq2.EnqueueFirst(2);
+
+            Assert.AreEqual(deq.CompareTo(deq2), 1);
+
+            deq2.EnqueueFirst(2);
+            deq2.EnqueueFirst(2);
+
+            Assert.AreEqual(deq.CompareTo(deq2), 0);
+
+            deq2.EnqueueFirst(2);
+            deq2.EnqueueFirst(2);
+
+            Assert.AreEqual(deq.CompareTo(deq2), -1);
+        }
+        #endregion
     }
 }

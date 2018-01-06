@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,9 +31,14 @@ namespace Lab2
             deq.EnqueueLast(10);
             deq.EnqueueLast(-1);
 
+            
             bool check = deq.Contains(5);
             var head = deq.PeekFirst();
             var tail = deq.PeekLast();
+
+            Console.WriteLine("Deque to string:");
+            
+            Console.WriteLine(deq.ToString());
 
             Console.WriteLine("Элементы, которые <= 0:");
             foreach (int i in LessOrEqualZero(deq))
@@ -41,6 +47,25 @@ namespace Lab2
             Console.WriteLine("Перебор элементов через foreach");
             foreach (int i in deq)
                 Console.WriteLine(i);
+
+
+            ArrayList deqs = new ArrayList();
+
+            MyDeque<int> deq2 = new MyDeque<int>();
+            deq2.EnqueueFirst(1);
+            deq2.EnqueueFirst(1);
+
+            MyDeque<int> deq3 = new MyDeque<int>();
+            deq3.EnqueueFirst(1);
+            deq3.EnqueueFirst(1);
+            deq3.EnqueueFirst(1);
+            deq3.EnqueueFirst(1);
+
+            deqs.Add(deq);
+            deqs.Add(deq2);
+            deqs.Add(deq3);
+            
+            deqs.Sort();
 
             //deq.Clear();
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab2
 {
-    public class MyDeque<T> : IMyDeque<T>, IEnumerable, ICloneable
+    public class MyDeque<T> : IMyDeque<T>, IEnumerable, ICloneable, IComparable
     {
         T[] items;
         int count;
@@ -171,5 +171,14 @@ namespace Lab2
         {
             return this.MemberwiseClone();
         }
+
+        // Реализация метода CompareTo
+        // метод сравнивает 2 дека по длине
+        public int CompareTo(object obj)
+        {
+            MyDeque<T> md = obj as MyDeque<T>;
+            return count.CompareTo(md.Count);
+        }
+
     }
 }
