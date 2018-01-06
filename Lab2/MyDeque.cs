@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab2
+namespace Lab2to5
 {
     public class MyDeque<T> : IMyDeque<T>, IEnumerable, ICloneable, IComparable
     {

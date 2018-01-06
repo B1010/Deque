@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Lab2;
+using Lab2to5;
 
-namespace Lab2_Test
+namespace Lab2to5_Test
 {
     [TestFixture]
     class MyDeque_Test
