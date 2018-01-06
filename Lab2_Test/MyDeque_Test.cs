@@ -167,5 +167,46 @@ namespace Lab2_Test
             Assert.AreEqual(deq.Contains(2), true);
         }
         #endregion
+
+        #region Тест метода GetEnumerator()
+        [Test]
+        public void Test_GetEnumerator()
+        {
+            MyDeque<int> deq = new MyDeque<int>();
+            deq.EnqueueLast(1);
+            deq.EnqueueLast(2);
+            deq.EnqueueLast(3);
+            deq.EnqueueLast(4);
+
+            int[] numbers = new int[deq.Count];
+
+            foreach (int i in deq)
+            {
+                for (int n = 0; n < numbers.Length; n++)
+                    numbers[n] = i;
+            }
+
+            Assert.AreEqual(deq.PeekLast(), numbers[deq.Count - 1]);
+        }
+        #endregion
+
+        #region Тест клонирования
+        [Test]
+        public void Test_Clone()
+        {
+            MyDeque<int> deq1 = new MyDeque<int>();
+            MyDeque<int> deq2 = new MyDeque<int>();
+
+            deq1.EnqueueLast(1);
+            deq1.EnqueueLast(2);
+            deq1.EnqueueLast(3);
+            deq1.EnqueueLast(4);
+
+            deq2 = (MyDeque<int>) deq1.Clone();
+
+            Assert.AreEqual(deq1.Count, deq2.Count);
+            Assert.AreEqual(deq1.PeekLast(), deq2.PeekLast());
+        }
+        #endregion
     }
 }
