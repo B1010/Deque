@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab2
 {
-    public class MyDeque<T> : IMyDeque<T>, IEnumerable//, ICloneable
+    public class MyDeque<T> : IMyDeque<T>, IEnumerable, ICloneable
     {
         T[] items;
         int count;
@@ -157,12 +157,19 @@ namespace Lab2
             }
         }
 
+        // Реализация интерфейса IEnumerable в котором единственный метод GetEnumerator()
         public IEnumerator GetEnumerator()
         {
             for (int i = head; i <= tail; i++)
                 yield return items[i];
         }
 
-        
+        // Реализация интерфейса ICloneable в котором единственный метод Clone()
+        // Неглубокого копирования будет достаточно
+        // потому что в деке нет свойств непримитивных типов
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }
