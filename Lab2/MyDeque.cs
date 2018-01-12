@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab2to5
 {
+    [Serializable]
     public class MyDeque<T> : IMyDeque<T>, IEnumerable, ICloneable, IComparable
     {
         T[] items;

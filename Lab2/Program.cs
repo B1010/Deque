@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,6 +33,24 @@ namespace Lab2to5
                 Console.WriteLine(a);
             return sortlist;
         }
+
+        public static void Serialization<T>(MyDeque<T> deq)
+        {
+            BinaryFormatter binFormat = new BinaryFormatter();
+            Stream fStream = new FileStream("mySerialize.dat", FileMode.Create, FileAccess.Write, FileShare.None);
+            binFormat.Serialize(fStream, deq);
+            fStream.Close();
+
+            BinaryFormatter binFormat2 = new BinaryFormatter();
+            Stream fStream2 = File.OpenRead("mySerialize.dat");
+            MyDeque<int> mydeq = (MyDeque<int>)binFormat.Deserialize(fStream2);
+
+            foreach (var x in mydeq)
+            {
+                Console.Write(x + " ");
+            }
+            
+        }
         static void Main(string[] args)
         {
             MyDeque<int> deq = new MyDeque<int>();
@@ -46,13 +66,16 @@ namespace Lab2to5
             deq.EnqueueLast(10);
             deq.EnqueueLast(-1);
 
-            
+            Console.WriteLine("Сериализация файлов");
+            Serialization(deq);
+            Console.WriteLine();
+
             bool check = deq.Contains(5);
             var head = deq.PeekFirst();
             var tail = deq.PeekLast();
-
-            //Console.WriteLine("Deque to string:");
             
+            //Console.WriteLine("Deque to string:");
+
             //Console.WriteLine(deq.ToString());
 
             Console.WriteLine("Элементы, которые <= 0:");
@@ -97,7 +120,7 @@ namespace Lab2to5
             deq.DequeueLast();
             deq.DequeueLast();
             deq.DequeueLast();
-
+            
             Console.Read();
         }
     }
