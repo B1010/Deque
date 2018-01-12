@@ -16,6 +16,21 @@ namespace Lab2to5
                 if (i <= 0)
                     yield return i;
         }
+
+        public static IEnumerable<int> LessOrEqualZeroLINQ(MyDeque<int> obj)
+        {
+            var list = new List<int>();
+            foreach (int i in obj)
+                list.Add(i);
+
+            var sortlist = from i in list
+                    where i <= 0
+                    select i;
+
+            foreach (int a in sortlist)
+                Console.WriteLine(a);
+            return sortlist;
+        }
         static void Main(string[] args)
         {
             MyDeque<int> deq = new MyDeque<int>();
@@ -36,13 +51,16 @@ namespace Lab2to5
             var head = deq.PeekFirst();
             var tail = deq.PeekLast();
 
-            Console.WriteLine("Deque to string:");
+            //Console.WriteLine("Deque to string:");
             
-            Console.WriteLine(deq.ToString());
+            //Console.WriteLine(deq.ToString());
 
             Console.WriteLine("Элементы, которые <= 0:");
             foreach (int i in LessOrEqualZero(deq))
                 Console.WriteLine(i);
+
+            Console.WriteLine("Ещё элементы <= 0:");
+            LessOrEqualZeroLINQ(deq);
 
             Console.WriteLine("Перебор элементов через foreach");
             foreach (int i in deq)
