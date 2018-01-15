@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Lab2to5
 {
     [Serializable]
-    public class MyDeque<T> : IMyDeque<T>, IEnumerable, ICloneable, IComparable
+    public class MyDeque<T> : IMyDeque<T>, IEnumerable<T>, ICloneable, IComparable
     {
         T[] items;
         int count;
@@ -159,7 +159,13 @@ namespace Lab2to5
         }
 
         // Реализация интерфейса IEnumerable в котором единственный метод GetEnumerator()
-        public IEnumerator GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            for (int i = head; i <= tail; i++)
+                yield return items[i];
+        }
+
+        public IEnumerator<T> GetEnumerator()
         {
             for (int i = head; i <= tail; i++)
                 yield return items[i];
